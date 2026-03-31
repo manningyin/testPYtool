@@ -1,0 +1,25 @@
+import pandas as pd
+
+currencies = [
+    "AUD","BRL","CAD","CHF","CNY","CZK","DKK","EUR","GBP","HKD",
+    "HUF","IDR","INR","ISK","JPY","KWD","MXN","NOK","NZD","PLN",
+    "SEK","TRY","USD","ZAR"
+]
+
+# Example: create matrix (replace with real values if needed)
+data = []
+
+for i in range(len(currencies)):
+    row = []
+    for j in range(len(currencies)):
+        if j <= i:
+            row.append(0)
+        else:
+            row.append(0.5)
+    data.append(row)
+
+df = pd.DataFrame(data, index=currencies, columns=currencies)
+
+df.to_csv("output.csv")
+
+print("CSV created successfully!")
